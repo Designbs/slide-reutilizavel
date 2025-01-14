@@ -1,0 +1,620 @@
+/* Importação da fonte Noto Sans do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* Reset básico para remover margens e padding padrão */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Container principal do projeto com posicionamento relativo para os controles de navegação */
+.containerproje {
+  position: relative;
+}
+
+/* Variáveis para tamanhos de fonte responsivos */
+:root {
+  --title-desktop: 35px;
+  --text-desktop: 18px;
+  --title-tablet: 2.8rem;
+  --text-tablet: 1rem;
+  --title-mobile: 2rem;
+  --text-mobile: 0.9rem;
+}
+
+/* Slide base */
+.slide {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Conteúdo do slide */
+.slide__content {
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+  margin-left: 5%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.slide__title {
+  font-size: var(--title-desktop);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.slide__text {
+  font-size: var(--text-desktop);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/* Imagens de fundo responsivas */
+.slide--first,
+.slide--second,
+.slide--third {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Estilização do slide individual */
+.containerproje .slide-container .slide {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* Estilização do conteúdo dentro do slide */
+.containerproje .slide-container .slide .contentproje {
+  flex: 1 1 350px; /* Base de 350px com flexibilidade para crescer e encolher */
+  animation: slideContent 0.4s linear 0.4s backwards; /* Animação de entrada do conteúdo */
+  padding: 20px;
+}
+
+/* Definição da animação de entrada do conteúdo */
+@keyframes slideContent {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); /* Desliza da esquerda para direita */
+  }
+}
+
+/* Estilo do título dentro do conteúdo */
+.containerproje .slide-container .slide .contentproje h3 {
+  font-size: 45px;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  max-width: 70%;
+}
+
+/* Estilo do parágrafo dentro do conteúdo */
+.containerproje .slide-container .slide .contentproje p {
+  font-size: 18px;
+  color: #ffffff;
+  font-family: "Noto Sans", sans-serif;
+  width: 40%;
+  height: 10%;
+}
+
+/* Estilização do botão do projeto */
+.containerproje .slide-container .slide .contentproje .bntproj {
+  margin-top: 10px;
+  display: inline-block;
+  background: #8932c3;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 9px 40px;
+  border-radius: 5px;
+  border: 2px solid #8932c3;
+  font-family: "Noto Sans", sans-serif;
+  text-decoration: none;
+}
+
+/* Efeito hover do botão */
+.containerproje .slide-container .slide .contentproje .bntproj:hover {
+  background: #a355d7;
+  border: 2px solid #a355d7;
+  color: #ffffff;
+}
+
+/* Controle de visibilidade dos slides */
+.containerproje .slide-container {
+  display: none; /* Esconde todos os slides por padrão */
+}
+
+/* Mostra apenas o slide ativo */
+.containerproje .slide-container.active {
+  display: block;
+}
+
+/* Configuração das imagens de fundo para cada slide */
+.containerproje .slide-container:nth-child(1) .slide {
+  background: url(./imagens/imagem-2.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 85vh;
+}
+
+.containerproje .slide-container:nth-child(2) .slide {
+  background: url(./imagens/imagem-3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 85vh;
+}
+
+.containerproje .slide-container:nth-child(3) .slide {
+  background: url(./imagens/imagem-1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 85vh;
+}
+
+/* Estilização dos botões de navegação (prev e next) */
+.containerproje #prev,
+.containerproje #next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  background: #890873;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bolder;
+  border-radius: 50px;
+  z-index: 3;
+}
+
+/* Efeito hover dos botões de navegação */
+.containerproje #prev:hover,
+.containerproje #next:hover {
+  background: #ee7bd3;
+}
+
+/* Posicionamento do botão anterior */
+.containerproje #prev {
+  left: 20px;
+}
+
+/* Posicionamento do botão próximo */
+.containerproje #next {
+  right: 20px;
+}
+
+/* Media Queries para responsividade */
+/* Ajustes para telas até 500px */
+@media (max-width: 500px) {
+  .containerproje #prev {
+    left: 0px;
+    top: 60%;
+  }
+
+  .containerproje #next {
+    right: 0px;
+    top: 60%;
+  }
+
+  .containerproje .slide-container .slide .contentproje p {
+    font-size: 16px;
+    color: #ffffff;
+    font-family: "Noto Sans", sans-serif;
+    width: 70%;
+    height: 10%;
+  }
+}
+
+/* Ajustes para telas até 768px (tablets e celulares) */
+@media (max-width: 768px) {
+  .containerproje .slide-container .slide {
+    height: auto;
+    min-height: 85vh;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .slide__content {
+    width: 90%;
+    background: rgba(0, 0, 0, 0.7);
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .containerproje .slide-container .slide .contentproje h3 {
+    font-size: 20px;
+  }
+
+  .containerproje .slide-container .slide .contentproje p {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .containerproje .slide-container .slide .contentproje .bntproj {
+    padding: 8px 30px;
+    font-size: 15px;
+  }
+
+  /* Esconde as setas em tablets */
+  .containerproje #prev,
+  .containerproje #next {
+    display: none;
+  }
+}
+
+/* Ajustes para telas muito pequenas (até 480px) */
+@media (max-width: 480px) {
+  .containerproje .slide-container .slide {
+    padding: 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .containerproje .slide-container .slide .contentproje {
+    margin: 0 auto;
+    max-width: 98%;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Ajuste específico para cada slide */
+  .containerproje .slide-container:nth-child(1) .slide,
+  .containerproje .slide-container:nth-child(2) .slide,
+  .containerproje .slide-container:nth-child(3) .slide {
+    width: 100%;
+    min-height: 85vh;
+    background-size: contain;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .slide__title {
+    font-size: var(--title-mobile);
+    margin-bottom: 1rem;
+  }
+
+  .slide__text {
+    font-size: var(--text-mobile);
+    margin-bottom: 1.5rem;
+  }
+
+  .slide__button {
+    font-size: 0.8rem;
+    padding: 0.7rem 1.5rem;
+  }
+
+  /* Garante que as setas continuem escondidas em mobile */
+  .containerproje #prev,
+  .containerproje #next {
+    display: none;
+  }
+}
+
+/* Media Query para tablets */
+@media (max-width: 768px) {
+  .slide__content {
+    width: 70%;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .slide__title {
+    font-size: var(--title-tablet);
+  }
+
+  .slide__text {
+    font-size: var(--text-tablet);
+  }
+
+  .slide__button {
+    font-size: 0.9rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+/* Media Query para smartphones */
+@media (max-width: 480px) {
+  .slide__content {
+    width: 85%;
+    padding: 1rem;
+  }
+
+  .slide__title {
+    font-size: var(--title-mobile);
+    margin-bottom: 1rem;
+  }
+
+  .slide__text {
+    font-size: var(--text-mobile);
+    margin-bottom: 1.5rem;
+  }
+
+  .slide__button {
+    font-size: 0.8rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+/* Media Query para telas muito pequenas */
+@media (max-width: 320px) {
+  .containerproje .slide-container .slide {
+    height: 100vh;
+    padding: 10px;
+  }
+
+  .slide__content {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .slide__title {
+    font-size: calc(var(--title-mobile) * 0.9);
+  }
+
+  .slide__text {
+    font-size: calc(var(--text-mobile) * 0.9);
+  }
+}
+
+/* Media Query para altura */
+@media (max-height: 600px) {
+  .slide__content {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .slide__title {
+    margin-bottom: 0.8rem;
+  }
+
+  .slide__text {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Ajuste para diferentes proporções de tela */
+@media (aspect-ratio: 16/9), (aspect-ratio: 4/3) {
+  .containerproje .slide-container .slide {
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+/* Máscara preta com transparência */
+.containerproje .slide-container .slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Ajuste do conteúdo */
+.containerproje .slide-container .slide .contentproje {
+  position: relative;
+  z-index: 2;
+  margin-left: 15%;
+  padding: 20px;
+  max-width: 85%;
+}
+
+/* Ajuste para tablets e mobile */
+@media (max-width: 768px) {
+  .containerproje .slide-container .slide .contentproje {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 90%;
+    padding: 25px;
+    width: 100%;
+  }
+
+  .containerproje .slide-container .slide .contentproje p {
+    width: 100%;
+    margin: 15px auto;
+    text-align: center;
+  }
+
+  .containerproje .slide-container .slide .contentproje h3 {
+    text-align: center;
+  }
+
+  .containerproje .slide-container .slide .contentproje .bntproj {
+    display: block;
+    margin: 15px auto;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerproje .slide-container .slide {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .containerproje .slide-container .slide .contentproje {
+    margin: 0 auto;
+    max-width: 98%;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+/* Estilos do cabeçalho */
+.header {
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 20px 0;
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  padding: 0.5rem 0;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav__link {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+  color: #f4a6fe;
+}
+
+/* Media Query para menu responsivo */
+@media (max-width: 768px) {
+  .header__container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+  }
+
+  .header__logo {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Estilos do menu mobile */
+.menu-mobile {
+  display: none; /* Esconde por padrão */
+}
+
+/* Media Query para menu responsivo */
+@media (max-width: 768px) {
+  .header {
+    background-color: rgba(0, 0, 0, 0.8); /* Barra escura semi-transparente */
+    padding: 10px 0;
+  }
+
+  .header__container {
+    flex-direction: row; /* Volta para row para alinhar logo e botão */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .header__logo {
+    margin: 0;
+  }
+
+  .menu-mobile {
+    display: block;
+    font-size: 28px;
+    color: #ffffff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .menu-mobile i {
+    color: #ffffff;
+  }
+
+  .header__nav {
+    display: none; /* Esconde o menu por padrão */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .header__nav.active {
+    display: block; /* Mostra quando ativo */
+  }
+
+  .nav__list {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nav__item {
+    margin: 10px 0;
+  }
+
+  /* Efeito hover opcional */
+  .menu-mobile:hover {
+    opacity: 0.8;
+  }
+}

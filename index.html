@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Por Bruno Oliveira">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Meu site contábil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="header__container">
+            <!-- Logo -->
+            <div class="header__logo">
+                <a href="index.html">
+                    <img src="./imagens/logo.png" alt="Logo da Empresa" class="logo">
+                </a>
+            </div>
+
+            <!-- Botão do menu mobile -->
+            <button class="menu-mobile" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer -->
+            </button>
+
+            <!-- Menu de navegação -->
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#inicio" class="nav__link">INÍCIO</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#sobre" class="nav__link">SOBRE NÓS</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#servicos" class="nav__link">SERVIÇOS</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#noticias" class="nav__link">NOTÍCIAS</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#cliente" class="nav__link">ÁREA DO CLIENTE</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contato" class="nav__link">FALE CONOSCO</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="containerproje">
+        <div class="slide-container active">
+            <div class="slide">
+                <div class="contentproje">
+                    <h3>
+                        MEI, TEMOS SOLUÇÕES EM <br>
+                        CONTABILIDADE PARA VOCÊ!
+                    </h3>
+                    <p>A contabilidade que cabe no seu bolso!</p>
+                    <a href="#" class="bntproj">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide">
+                <div class="contentproje">
+                    <h3>A CONTABILIDADE
+                        QUE A SUA EMPRESA PRECISA!</h3>
+                    <p>Abra sua empresa e tenha uma contabilidade completa.
+
+                    </p>
+                    <a href="#" class="bntproj">Converse conosco</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide">
+                <div class="contentproje">
+                    <h3>JÁ POSSUI EMPRESA ABERTA E
+                        QUER MUDAR DE CONTABILIDADE?
+                    </h3>
+                    <p>Nós migramos toda a contabilidade de forma rápida e fácil.</p>
+                    <a href="#" class="bntproj">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="prev" onclick="prev()">
+            < </div>
+                <div id="next" onclick="next()"> > </div>
+    </section>
+
+    <script src="interacao/script.js"></script>
+</body>
+
+</html>
